@@ -55,9 +55,11 @@ def banner():
 def mulai(i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
+	link = url
 	try:
-		url = f'https://graph.facebook.com/{url}/comments/?&message={pesan}{date}&access_token={took}'
-		ok = ses.post(url,cookies={'cookie':cook}).text
+		get = f'https://graph.facebook.com/{link}/comments/?&message={pesan}{date}&access_token={took}'
+		ok = ses.post(get,cookies={'cookie':cook}).text
+		print(ok)
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
 		elif 'error' in ok:
