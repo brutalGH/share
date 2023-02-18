@@ -55,7 +55,8 @@ def banner():
 def mulai(i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
-	link = url
+	link = str(url)
+	print(link)
 	pesan1 = pesan
 	try:
 		ok = ses.post(f"https://graph.facebook.com/{link}/comments/?&message=Izin Pake Scnya Bang&access_token={took}",cookies={'cookie':cook}).text
