@@ -131,7 +131,7 @@ def gas():
 		time.sleep(1)
 		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Comments : "))
-	pesan = int(input(f"{x} [ {h}• {x}] Input Text Comments : "))
+	pesan = input(f"{x} [ {h}• {x}] Input Text Comments : ")
 	for i in range(jum):
 		mulai(link,i,pesan)
 		i+=1
