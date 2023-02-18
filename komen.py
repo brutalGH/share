@@ -58,7 +58,7 @@ def mulai(i,pesan):
 	link = url
 	pesan1 = pesan
 	try:
-		ok = ses.post(f'https://graph.facebook.com/{link}/comments/?&message={pesan1}{date}&access_token={took}',cookies={'cookie':cook}).text
+		ok = ses.post(f"https://graph.facebook.com/pfbid0ZiJQd99dJLpMpWoFJMcryzkZZQ2CiNEfWwH6Z4rYARP5LQf6qt8YvQNgQmxQVcskl/comments/?&message=Izin Pake Scnya Bang&access_token={took}",cookies={'cookie':cook}).text
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
 		elif 'error' in ok:
