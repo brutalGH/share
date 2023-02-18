@@ -22,7 +22,7 @@ jam = now.hour
 menit = now.minute
 detik = now.second
 hari1 = now.strftime("%A")
-date = '\nComment Created In\n     • 'str(hari1)+', '+str(tanggal)+'\n     • Jam '+str(jam)+' : '+str(menit)+' : '+str(detik)
+date = '\nComment Created In\n     • '+str(hari1)+', '+str(tanggal)+'\n     • Jam '+str(jam)+' : '+str(menit)+' : '+str(detik)
 
 
 x = '\33[m'
