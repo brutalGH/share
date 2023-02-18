@@ -48,6 +48,8 @@ def mulai(link,i):
 		print('Ups Terjadi Kesalahan')
 
 def gettok():
+	os.system('rm .token.txt')
+	os.system('rm .cookie.txt')
 	banner()
 	cook = input(f"{x} [ {h}• {x}] Input Cookies : ")
 	open('.cookie.txt','w').write(cook)
@@ -71,6 +73,14 @@ def gas():
 	banner()
 	link = input(f"{x} [ {h}• {x}] Input Url : ")
 	banner()
+	try:
+		cook = open('.cookie.txt','r').read()
+		took = open('.token.txt','r').read()
+		get = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+token, cookies={'cookie':cook})
+		nama = json.loads(get.text)['name']
+		print(f"{x} [ {h}• {x}] Nama Account : {h}"+nama)
+	except KeyError:
+		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Share : "))
 	for i in range(jum):
 		mulai(link,i)
