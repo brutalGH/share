@@ -84,6 +84,7 @@ def gettok():
 		print('Cookies Invalid')
 
 def set():
+	banner()
 	ids = input(f"{x} [ {h}• {x}] Input Url : ")
 	if 'post' in ids:
 		url5 = ids.split('/')[5]
@@ -115,7 +116,7 @@ def set():
 
 
 def gas(url5):
-	url5 = url
+	url = url5
 	try:
 		open('.token.txt','r').read()
 	except:
