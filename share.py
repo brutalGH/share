@@ -76,7 +76,7 @@ def gas():
 	try:
 		cook = open('.cookie.txt','r').read()
 		took = open('.token.txt','r').read()
-		get = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+token, cookies={'cookie':cook})
+		get = requests.get('https://graph.facebook.com/me?fields=id,name&access_token='+took, cookies={'cookie':cook})
 		nama = json.loads(get.text)['name']
 		print(f"{x} [ {h}• {x}] Nama Account : {h}"+nama)
 	except KeyError:
