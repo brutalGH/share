@@ -86,13 +86,13 @@ def gettok():
 def set():
 	banner()
 	ids = input(f"{x} [ {h}• {x}] Input Url : ")
-	if 'post' in ids:
+	if 'posts' in ids:
 		url5 = ids.split('/')[5]
 		gas(url5)
 
 	elif 'substory_index' in ids:
-		url1 = ids.split('/')[5]
-		url2 = ids.split('/')[6].split('=')[1].replace('&app=fbl','')
+		url1 = ids.split('/')[3]
+		url2 = ids.split('/')[5]
 		url5 = url1+'_'+url2
 		gas(url5)
 
