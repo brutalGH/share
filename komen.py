@@ -117,6 +117,11 @@ def set():
 		tok1 = ids.split('/')[6]
 		url5 = tok+'_'+tok1
 		gas(url5)
+		
+	elif 'reel' in ids:
+		url5 = ids.split('/')[4]
+		gas(url5)
+		
 	else:
 		print(f"{x} [ {m}• {x}] Maaf Link Yang Anda Masukan Belum Terdaftar")
 
