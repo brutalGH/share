@@ -52,11 +52,11 @@ def banner():
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='v 3.144'))
 
-def mulai(link,i):
+def mulai(link,i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	try:
-		url = f'https://graph.facebook.com/{url}/comments/?&message={pesa}{date}&access_token={took}'
+		url = f'https://graph.facebook.com/{url}/comments/?&message={pesan}{date}&access_token={took}'
 		ok = ses.post(url,cookies={'cookie':cook}).text
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
@@ -131,8 +131,9 @@ def gas():
 		time.sleep(1)
 		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Comments : "))
+	pesan = int(input(f"{x} [ {h}• {x}] Input Text Comments : "))
 	for i in range(jum):
-		mulai(link,i)
+		mulai(link,i,pesan)
 		i+=1
 
 if __name__=='__main__':
