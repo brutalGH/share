@@ -90,8 +90,10 @@ def set():
 		url5 = ids.split('/')[5]
 		gas(url5)
 
-	elif 'substory' in ids:
-		url5 = ids.split('/')[6]
+	elif 'substory_index' in ids:
+		url1 = ids.split('/')[5]
+		url2 = ids.split('/')[6].split('=')[1].replace('&app=fbl','')
+		url5 = url1+'_'url2
 		gas(url5)
 
 	elif 'photo.php' in ids:
