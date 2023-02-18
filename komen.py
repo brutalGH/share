@@ -57,6 +57,8 @@ def mulai(i,pesan):
 	took = open('.token.txt','r').read()
 	link = url
 	try:
+		print(link)
+		print(pesan,date)
 		get = f'https://graph.facebook.com/{link}/comments/?&message={pesan}{date}&access_token={took}'
 		ok = ses.post(get,cookies={'cookie':cook}).text
 		print(ok)
