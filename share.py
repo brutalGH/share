@@ -1,4 +1,4 @@
-import requests,re,rich,sys,os,json
+import requests,re,rich,sys,os,json,time
 from rich.markdown import Markdown as mark
 from rich import print as cetak
 from rich.console import Console as sol
@@ -80,6 +80,8 @@ def gas():
 		nama = json.loads(get.text)['name']
 		print(f"{x} [ {h}• {x}] Nama Account : {h}"+nama)
 	except KeyError:
+		print('Cookie Invalid, Login ulang')
+		time.sleep(1)
 		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Share : "))
 	for i in range(jum):
