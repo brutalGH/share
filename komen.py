@@ -5,7 +5,6 @@ from rich.console import Console as sol
 from rich.panel import Panel as nel
 from datetime import datetime
 ses = requests.Session()
-url = []
 
 sasi = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"]
 now = datetime.now()
@@ -52,14 +51,11 @@ def banner():
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='v 3.144'))
 
-def mulai(i,pesan):
+def mulai(url,i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
-	link = str(url)
-	print(link)
-	pesan1 = pesan
 	try:
-		ok = ses.post(f"https://graph.facebook.com/{link}/comments/?&message=Izin Pake Scnya Bang&access_token={took}",cookies={'cookie':cook}).text
+		ok = ses.post(f"https://graph.facebook.com/{url}/comments/?&message={pesan}{date}&access_token={took}",cookies={'cookie':cook}).text
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
 		elif 'error' in ok:
@@ -87,40 +83,43 @@ def gettok():
 
 		print('Cookies Invalid')
 
-def gas():
-	try:
-		open('.token.txt','r').read()
-	except:
-		gettok()
-	banner()
+def set():
 	ids = input(f"{x} [ {h}• {x}] Input Url : ")
 	if 'post' in ids:
 		url5 = ids.split('/')[5]
-		url.append(url5)
+		gas(url5)
 
 	elif 'photo.php' in ids:
 		url5 = ids.split('/')[3].split('=')[1].replace('&id','')
-		url.append(url5)
+		gas(url5)
 
 	elif 'story.php' in ids:
 		url5 = ids.split('/')[3].split('=')[1].replace('&id','')
-		url.append(url5)
+		gas(url5)
 
 	elif 'fb://photo' in ids:
 		url5 = ids.split('/')[3].split('?')[0]
-		url.append(url5)
+		gas(url5)
 
 	elif 'videos' in ids:
 		url5 = ids.split('/')[5]
-		url.append(url5)
+		gas(url5)
 
 	elif 'groups' in ids:
 		tok = ids.split('/')[4]
 		tok1 = ids.split('/')[6]
 		url5 = tok+'_'+tok1
-		url.append(url5)
+		gas(url5)
 	else:
 		print(f"{x} [ {m}• {x}] Maaf Link Yang Anda Masukan Belum Terdaftar")
+
+
+def gas(url5):
+	url5 = url
+	try:
+		open('.token.txt','r').read()
+	except:
+		gettok()
 	banner()
 	try:
 		cook = open('.cookie.txt','r').read()
@@ -135,8 +134,8 @@ def gas():
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Comments : "))
 	pesan = input(f"{x} [ {h}• {x}] Input Text Comments : ")
 	for i in range(jum):
-		mulai(i,pesan)
+		mulai(url,i,pesan)
 		i+=1
 
 if __name__=='__main__':
-	gas()
+	set()
