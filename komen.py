@@ -57,11 +57,7 @@ def mulai(i,pesan):
 	took = open('.token.txt','r').read()
 	link = url
 	try:
-		print(link)
-		print(pesan,date)
-		get = f'https://graph.facebook.com/{link}/comments/?&message={pesan}{date}&access_token={took}'
-		ok = ses.post(get,cookies={'cookie':cook}).text
-		print(ok)
+		ok = ses.post(f'https://graph.facebook.com/{link}/comments/?&message={pesan}{date}&access_token={took}',cookies={'cookie':cook}).text
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
 		elif 'error' in ok:
