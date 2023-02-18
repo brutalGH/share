@@ -90,6 +90,10 @@ def set():
 		url5 = ids.split('/')[5]
 		gas(url5)
 
+	elif 'substory' in ids:
+		url5 = ids.split('/')[6]
+		gas(url5)
+
 	elif 'photo.php' in ids:
 		url5 = ids.split('/')[3].split('=')[1].replace('&id','')
 		gas(url5)
