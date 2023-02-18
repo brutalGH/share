@@ -52,7 +52,7 @@ def banner():
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='v 3.144'))
 
-def mulai(link,i,pesan):
+def mulai(i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	try:
@@ -133,7 +133,7 @@ def gas():
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Comments : "))
 	pesan = input(f"{x} [ {h}• {x}] Input Text Comments : ")
 	for i in range(jum):
-		mulai(link,i,pesan)
+		mulai(i,pesan)
 		i+=1
 
 if __name__=='__main__':
