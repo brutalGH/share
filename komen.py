@@ -56,8 +56,9 @@ def mulai(i,pesan):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	link = url
+	pesan1 = pesan
 	try:
-		ok = ses.post(f'https://graph.facebook.com/{link}/comments/?&message={pesan}{date}&access_token={took}',cookies={'cookie':cook}).text
+		ok = ses.post(f'https://graph.facebook.com/{link}/comments/?&message={pesan1}{date}&access_token={took}',cookies={'cookie':cook}).text
 		if 'id' in ok:
 			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
 		elif 'error' in ok:
