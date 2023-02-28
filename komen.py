@@ -56,7 +56,7 @@ def ngatur(tumbal,target,datem,text):
 		gas(tumbal,url,datem,text)
 
 	elif 'photo.php' in target:
-		url = target.split('/')[3].split('=')[1].replace('&id','')
+		url = target.split('/')[3].split('=')[1].replace('&set','')
 		gas(tumbal,url,datem,text)
 
 	elif 'story.php' in target:
