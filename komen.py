@@ -5,7 +5,7 @@ from rich.console import Console as sol
 from rich.panel import Panel as nel
 from datetime import datetime
 ses = requests.Session()
-os.system('git pull')
+
 #WARNA
 x = '\33[m'
 h = '\x1b[1;92m'
@@ -146,5 +146,5 @@ def token(tumbal):
 
 			print('Cookies Invalid')
 		i+=1
-
+os.system('git pull')
 menu()
