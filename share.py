@@ -41,6 +41,8 @@ def mulai(link):
 		ok = ses.post(url,cookies={'cookie':cook}).text
 		if 'Kami membatasi' in ok:
 			print(f'{x}   ╚═ [ {m}• {x}]share failled Akun Limit')
+                elif 'We limit' in ok:
+			print(f'{x}   ╚═ [ {m}• {x}]share failled Akun Limit')
 		elif 'id' in ok:
 			print(f"{x}   ╚═ [ {h}• {x}] Succes : {h}"+ok)
 		else:
