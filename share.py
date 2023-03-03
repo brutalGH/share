@@ -85,7 +85,7 @@ def gas():
 		time.sleep(1)
 		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Share : "))
-	with thread(max_workers=30) as pool:
+	with thread(max_workers=10) as pool:
 		for io in range(jum):
 			pool.submit(mulai,link)
 
