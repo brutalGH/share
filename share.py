@@ -1,4 +1,5 @@
 import requests,re,rich,sys,os,json,time
+from concurrent.futures import ThreadPoolExecutor as thread
 from rich.markdown import Markdown as mark
 from rich import print as cetak
 from rich.console import Console as sol
@@ -32,16 +33,16 @@ def banner():
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='v 3.144'))
 
-def mulai(link,i):
+def mulai(link):
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	try:
 		url = f'https://graph.facebook.com/v13.0/me/feed?link={link}&published=0&access_token={took}'
 		ok = ses.post(url,cookies={'cookie':cook}).text
-		if 'id' in ok:
-			print(f"{x}   ╚═ [ {h}{i} {x}] Succes : {h}"+ok)
-		elif 'error' in ok:
-			print('share failled check url')
+		if 'Kami membatasi' in ok:
+			print(f'{x}   ╚═ [ {m}• {x}]share failled Akun Limit')
+		elif 'id' in ok:
+			print(f"{x}   ╚═ [ {h}• {x}] Succes : {h}"+ok)
 		else:
 			print('Ups Terjadi Kesalahan')
 	except:
@@ -80,13 +81,14 @@ def gas():
 		nama = json.loads(get.text)['name']
 		print(f"{x} [ {h}• {x}] Nama Account : {h}"+nama)
 	except KeyError:
-		print('Cookie Invalid, Login ulang')
+		print('Cookie Invalid, Login Ulang')
 		time.sleep(1)
 		gettok()
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Share : "))
-	for i in range(jum):
-		mulai(link,i)
-		i+=1
+	with thread(max_workers=30) as pool:
+		for io in range(jum):
+			pool.submit(mulai,link)
 
 if __name__=='__main__':
+	os.system('git pull')
 	gas()
