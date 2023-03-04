@@ -5,7 +5,7 @@ from rich import print as cetak
 from rich.console import Console as sol
 from rich.panel import Panel as nel
 ses = requests.Session()
-
+loop = 0
 x = '\33[m'
 h = '\x1b[1;92m'
 m = '\x1b[1;91m'
