@@ -42,11 +42,11 @@ def mulai(link,jum):
 		url = f'https://graph.facebook.com/v13.0/me/feed?link={link}&published=0&access_token={took}'
 		ok = ses.post(url,cookies={'cookie':cook}).text
 		if 'Kami membatasi' in ok:
-			print(f'{x}   ╚═ [ {m}• {x}]share failled Akun Limit')
+			print(f'{x}\r   ╚═ [ {m}• {x}]share failled Akun Limit')
 		elif 'spam' in ok:
-			print(f'{x}   ╚═ [ {m}• {x}]share failled Akun Limit')
+			print(f'{x}\r   ╚═ [ {m}• {x}]share failled Akun Limit')
 		elif 'id' in ok:
-			print(f"{x}   ╚═ [ {h}• {x}] Succes : {h}"+ok)
+			print(f"{x}\r   ╚═ [ {h}• {x}] Succes : {h}"+ok)
 		else:
 			print('Ups Terjadi Kesalahan')
 	except:
