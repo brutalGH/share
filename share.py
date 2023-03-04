@@ -35,7 +35,7 @@ def banner():
 
 def mulai(link,jum):
 	global loop
-	print(f'\r{x} [ {h}• {x}] progres {loop} ~ {jum}' ,end='')
+	print(f'\r{x}   ══ [ {h}• {x}] progres {loop} ~ {jum}' ,end='')
 	cook = open('.cookie.txt','r').read()
 	took = open('.token.txt','r').read()
 	try:
@@ -92,7 +92,7 @@ def gas():
 	with thread(max_workers=2) as pool:
 		for io in range(jum):
 			pool.submit(mulai,link,jum)
-	print(f"{x} [ {h}• {x}] Succes Share Sebanyak {jum} ×")
+	print(f"{x}   ╚═ [ {m}! {x}] Succes Share Sebanyak {h}{jum}{x} ×")
 
 if __name__=='__main__':
 	os.system('git pull')
